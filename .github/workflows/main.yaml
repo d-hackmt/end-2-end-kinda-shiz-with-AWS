@@ -84,7 +84,11 @@ jobs:
       
       - name: Clean previous images and containers
         run: |
-         docker system prune -f
+         echo "Disk space before cleanup:"
+         df -h
+         docker system prune -af
+         echo "Disk space after cleanup:"
+         df -h
 
       - name: Pull latest images
         run: |
